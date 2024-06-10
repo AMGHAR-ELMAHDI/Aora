@@ -15,13 +15,13 @@ const zoomIn = {
     scale: 0.9,
   },
   1: {
-    scale: 1.1,
+    scale: 1,
   },
 };
 
 const zoomOut = {
   0: {
-    scale: 1.1,
+    scale: 1,
   },
   1: {
     scale: 0.9,
@@ -47,12 +47,12 @@ const TrendingItem = ({ activeItem, item }) => {
         >
           <ImageBackground
             source={{ uri: item.thumbnail }}
-            className="w-52 h-72 rounded-[35px] my-5 overflow-hidden shadow-lg shadow-black/40"
+            className="w-52 h-72 rounded-[33px] my-5 overflow-hidden shadow-lg shadow-black/40"
             resizeMode="cover"
-          ></ImageBackground>
+          />
           <Image
             source={icons.play}
-            className="absolute w-12 h-12"
+            className="w-12 h-12 absolute"
             resizeMode="contain"
           />
         </TouchableOpacity>
@@ -65,13 +65,15 @@ const Trending = ({ posts }) => {
   const [active, setActive] = useState(posts[1]);
 
   const viewableItemsChanged = ({ viewableItems }) => {
-    if (viewableItems.length > 0) setActive(viewableItems[0].key);
+    if (viewableItems.length > 0) {
+      setActive(viewableItems[0].key);
+    }
   };
 
   return (
     <FlatList
       data={posts}
-      keyExtractor={(item) => item.id}
+      keyExtractor={(item) => item.$id}
       horizontal
       renderItem={({ item }) => (
         <TrendingItem activeItem={active} item={item} />
