@@ -11,7 +11,7 @@ const SearchInput = ({
   ...props
 }) => {
   return (
-    <View className="border-2 border-black-500 w-full h-16 px-4 bg-black-100 rounded-2xl focus:border-secondary flex-row justify-between items-center space-x-4">
+    <View className="border-2  border-gray-700 w-full h-16 px-4 bg-black-100 rounded-2xl focus:border-secondary flex-row justify-between items-center space-x-4">
       <TextInput
         className="text-base mt-0.5 text-white flex-1 font-pregular"
         // value={value}
