@@ -29,7 +29,7 @@ const Profile = () => {
         ListHeaderComponent={() => (
           <View className="w-full justify-center items-center mt-6 mb-12 px-4">
             <TouchableOpacity
-              className="w-full items-end mb-10"
+              className="w-full items-end mb-5"
               onPress={logout}
             >
               <Image
