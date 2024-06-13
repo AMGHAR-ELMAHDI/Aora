@@ -17,7 +17,6 @@ import { createVideoPost } from "../../lib/appwrite";
 import { useGlobalContext } from "../../context/GlobalProvider";
 import * as ImagePicker from "expo-image-picker";
 import * as DocumentPicker from "expo-document-picker";
-import {launchImageLibrary} from 'react-native-image-picker'
 
 const Create = () => {
   const { user } = useGlobalContext();
