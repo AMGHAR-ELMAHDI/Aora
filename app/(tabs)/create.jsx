@@ -16,7 +16,6 @@ import { router } from "expo-router";
 import { createVideoPost } from "../../lib/appwrite";
 import { useGlobalContext } from "../../context/GlobalProvider";
 import * as ImagePicker from "expo-image-picker";
-import * as DocumentPicker from "expo-document-picker";
 
 const Create = () => {
   const { user } = useGlobalContext();
@@ -30,8 +29,10 @@ const Create = () => {
 
   const openPicker = async (selectType) => {
     const result = await ImagePicker.launchImageLibraryAsync({
-      mediaTypes: ImagePicker.MediaTypeOptions.All,
-      allowsEditing: true,
+      mediaTypes:
+        selectType === "image"
+          ? ImagePicker.MediaTypeOptions.Images
+          : ImagePicker.MediaTypeOptions.Videos,
       aspect: [4, 3],
       quality: 1,
     });
