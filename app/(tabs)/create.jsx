@@ -17,6 +17,7 @@ import { createVideoPost } from "../../lib/appwrite";
 import { useGlobalContext } from "../../context/GlobalProvider";
 import * as ImagePicker from "expo-image-picker";
 import * as DocumentPicker from "expo-document-picker";
+import {launchImageLibrary} from 'react-native-image-picker'
 
 const Create = () => {
   const { user } = useGlobalContext();
@@ -29,11 +30,11 @@ const Create = () => {
   });
 
   const openPicker = async (selectType) => {
-    const result = await DocumentPicker.getDocumentAsync({
-      type:
-        selectType === "image"
-          ? ["image/png", "image/jpg"]
-          : ["video/mp4", "video/gif"],
+    const result = await ImagePicker.launchImageLibraryAsync({
+      mediaTypes: ImagePicker.MediaTypeOptions.All,
+      allowsEditing: true,
+      aspect: [4, 3],
+      quality: 1,
     });
 
     if (!result.canceled) {
@@ -180,135 +181,3 @@ const Create = () => {
 };
 
 export default Create;
-
-// const Create = () => {
-//   const [uploading, setUploading] = useState(false);
-//   const { user } = useGlobalContext();
-//   const [form, setForm] = useState({
-//     title: "",
-//     video: null,
-//     thumbnail: null,
-//     prompt: "",
-//   });
-
-//   const openPicker = async (selectType) => {
-//     const result = await ImagePicker.launchImageLibraryAsync({
-//       mediaTypes:
-//         selectType === "image"
-//           ? ImagePicker.MediaTypeOptions.Images
-//           : ImagePicker.MediaTypeOptions.Videos,
-//       aspect: [4, 3],
-//       quality: 1,
-//     });
-
-//     if (!result.canceled) {
-//       if (selectType === "image")
-//         setForm({ ...form, thumbnail: result.assets[0] });
-//       else setForm({ ...form, video: result.assets[0] });
-//     }
-//   };
-
-//   const submit = async () => {
-//     if (!form.title || !form.video || !form.thumbnail || !form.prompt)
-//       return Alert.alert("All fields are required");
-
-//     setUploading(true);
-//     try {
-//       await createVideo({
-//         ...form,
-//         userId: user.$id,
-//       });
-//       Alert.alert("Success", "Video uploaded successfully");
-//       router.push("/home");
-//     } catch (error) {
-//       Alert.alert("Error", error.message);
-//     } finally {
-//       setForm({
-//         title: "",
-//         video: null,
-//         thumbnail: null,
-//         prompt: "",
-//       });
-//       setUploading(false);
-//     }
-//   };
-
-//   return (
-//     <SafeAreaView className="bg-primary h-full w-full">
-//       <ScrollView className="px-4 my-4">
-//         <Text className="text-white text-2xl font-psemibold">Upload Video</Text>
-//         <FormField
-//           title={"Video Title"}
-//           value={form.title}
-//           placeHolder={"Give your video a catchy title..."}
-//           handleChangeText={(e) => setForm({ ...form, title: e })}
-//           otherStyles="mt-5"
-//         />
-//         <View className="mt-5 space-y-2">
-//           <Text className="text-base text-gray-100 font-pmedium">
-//             Upload Video
-//           </Text>
-//           <TouchableOpacity onPress={() => openPicker("video")}>
-//             {form.video ? (
-//               <Video
-//                 source={{ uri: form.video.uri }}
-//                 className="w-full h-64 rounded-2xl"
-//                 resizeMode={ResizeMode.COVER}
-//               />
-//             ) : (
-//               <View className="w-full h-40 px-4 bg-black-100 rounded-2xl justify-center items-center">
-//                 <View className="w-14 h-14 border border-dashed border-secondary-100 justify-center items-center">
-//                   <Image
-//                     source={icons.upload}
-//                     resizeMode="contain"
-//                     className="w-1/2 h-1/2"
-//                   />
-//                 </View>
-//               </View>
-//             )}
-//           </TouchableOpacity>
-//         </View>
-//         <View className="mt-5 space-y-2">
-//           <Text className="text-base text-gray-100 font-pmedium">
-//             Thumbnail Image
-//           </Text>
-//           <TouchableOpacity onPress={() => openPicker("image")}>
-//             {form.thumbnail ? (
-//               <Image
-//                 source={{ uri: form.thumbnail.uri }}
-//                 className="w-full h-64 rounded-2xl"
-//                 resizeMode="cover"
-//               />
-//             ) : (
-//               <View className="w-full h-16 px-4 bg-black-100 rounded-2xl justify-center items-center border-2 border-black-200 flex-row space-x-2">
-//                 <Image
-//                   source={icons.upload}
-//                   resizeMode="contain"
-//                   className="w-5 h-5"
-//                 />
-//                 <Text className="text-sm text-gray-100 font-pmedium">
-//                   Choose a File
-//                 </Text>
-//               </View>
-//             )}
-//           </TouchableOpacity>
-//         </View>
-//         <FormField
-//           title="Ai Prompt"
-//           value={form.prompt}
-//           placeHolder="The prompt you used to create this video"
-//           handleChangeText={(e) => setForm({ ...form, prompt: e })}
-//           otherStyles="mt-6"
-//         />
-//         <CustomButton
-//           title={"Submit & Publish"}
-//           handlePress={submit}
-//           containerStyles={"mt-4"}
-//           isLoading={uploading}
-//         />
-//       </ScrollView>
-//     </SafeAreaView>
-//   );
-// };
-
-// export default Create;
