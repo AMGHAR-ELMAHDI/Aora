@@ -2,7 +2,7 @@
 
 <br />
 <div align="center">
-  <a href="https://github.com/AMGHAR-ELMAHDI/React-Native-Aora">
+  <a href="https://github.com/AMGHAR-ELMAHDI/Aora">
     <img src="./assets/images/logo.png" alt="Logo" height="80">
   </a>
 
@@ -43,7 +43,7 @@
 
 For backend services, I utilized Appwrite, a powerful open-source backend platform. Appwrite efficiently handles user data storage, authentication, and real-time database functionalities, ensuring that user information is secure and easily accessible.</p>
 
-<div style="display: flex; justify-content: center; align-items: center; flex-wrap: wrap; gap: 10px;">
+<div style="display: flex; justify-content: center; flex-wrap: wrap; gap: 5px;">
     <img src="./Images/Signup.png" width="130" />
     <img src="./Images/Login.png" width="130" />
     <img src="./Images/Home.png" width="130" />
@@ -81,7 +81,7 @@ To get a local copy up and running follow these simple example steps.
 
 1. Clone the repo
    ```sh
-   git clone git@github.com:AMGHAR-ELMAHDI/React-Native-Aora.git
+   git clone git@github.com:AMGHAR-ELMAHDI/Aora.git
    ```
 2. Install NPM packages
    ```sh
