@@ -43,13 +43,15 @@
 
 For backend services, I utilized Appwrite, a powerful open-source backend platform. Appwrite efficiently handles user data storage, authentication, and real-time database functionalities, ensuring that user information is secure and easily accessible.</p>
 
-<img  src="./Images/Signup.png"  width="130"/>
-<img  src="./Images/Login.png"  width="130"/>
-<img  src="./Images/Home.png"  width="130"/>
-<img  src="./Images/Create.png"  width="130"/>
-<img  src="./Images/Search.png"  width="130"/>
-<img  src="./Images/Profile.png"  width="130"/>
-<img  src="./Images/Saved.png"  width="130"/>
+<div style="display: flex; flex-wrap: wrap; gap: 10px;">
+    <img src="./Images/Signup.png" width="130" />
+    <img src="./Images/Login.png" width="130" />
+    <img src="./Images/Home.png" width="130" />
+    <img src="./Images/Create.png" width="130" />
+    <img src="./Images/Search.png" width="130" />
+    <img src="./Images/Profile.png" width="130" />
+    <img src="./Images/Saved.png" width="130" />
+</div>
 
 ## Features
 
