@@ -43,13 +43,13 @@
 
 For backend services, I utilized Appwrite, a powerful open-source backend platform. Appwrite efficiently handles user data storage, authentication, and real-time database functionalities, ensuring that user information is secure and easily accessible.</p>
 
-<img align="center" src="./Images/Signup.png"  width="130"/>
-<img align="center" src="./Images/Login.png"  width="130"/>
-<img align="center" src="./Images/Home.png"  width="130"/>
-<img align="center" src="./Images/Create.png"  width="130"/>
-<img align="center" src="./Images/Search.png"  width="130"/>
-<img align="center" src="./Images/Profile.png"  width="130"/>
-<img align="center" src="./Images/Saved.png"  width="130"/>
+<img  src="./Images/Signup.png"  width="130"/>
+<img  src="./Images/Login.png"  width="130"/>
+<img  src="./Images/Home.png"  width="130"/>
+<img  src="./Images/Create.png"  width="130"/>
+<img  src="./Images/Search.png"  width="130"/>
+<img  src="./Images/Profile.png"  width="130"/>
+<img  src="./Images/Saved.png"  width="130"/>
 
 ## Features
 
@@ -92,7 +92,6 @@ To get a local copy up and running follow these simple example steps.
  npm start
 ```
 
-  <h2 align="center"><a href="https://game-hub-tawny-kappa.vercel.app/">Click Here for Preview</a></h2>
 
 ## Contact
 
